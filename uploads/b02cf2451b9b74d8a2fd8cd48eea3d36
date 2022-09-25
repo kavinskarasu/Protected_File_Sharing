@@ -1,0 +1,56 @@
+   //code here
+        ArrayList<Integer>List=new ArrayList<>();
+        ArrayDeque<Node>temp=new ArrayDeque<>();
+        Stack<Node>trash=new Stack<>();
+        if(root==null){
+            List.add(-1);
+            return List;
+        }
+         temp.add(root);
+         while(temp.size()!=0){
+             int n=temp.size();
+             for(int i=0;i<n;i++){
+                 Node t=temp.remove();
+                 trash.push(t);
+                 if(t.left==node_to_find||t.right==node_to_find){
+                     if(temp.size()!=0){
+                         Node t1=temp.remove();
+                         if(t1.left!=null){
+                             List.add(t1.left.data);
+                         }
+                         if(t1.right!=null){
+                             List.add(t1.right.data);
+                         }
+                     }
+                     trash.pop();
+                     if(trash.size()!=0){
+                         Node d=trash.pop();
+                         
+                         if(d.left!=null){
+                             List.add(d.left.data);
+                         }
+                         if(d.right!=null){
+                             List.add(d.right.data);
+                         }
+                     }
+                     
+                     if(List.size()!=0){
+                     return List;
+                     }
+                 }
+                 else{
+                     if(t.left!=null){
+                         temp.add(t.left);
+                     }
+                     if(t.right!=null){
+                         temp.add(t.right);
+                     }
+                 }
+             }
+             trash.clear();
+         }
+         if(List.size()==0){
+             List.add(-1);
+             return List;
+         }
+   return List; 

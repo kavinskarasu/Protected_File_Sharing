@@ -13,6 +13,10 @@
     <title>File Share</title>
 </head>
 <body>
+   
+
+
+    <% if(locals.fileLink!=null){ %>Your file upload <a href="<%= locals.fileLink %>"><%= locals.fileLink%>  </a><% }%>
     <div class="container contact-form">
         <div class="contact-image">
             <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
@@ -43,6 +47,7 @@
                 </div>
             </div>
         </form>
+       
 </div>
     
 </body>
